@@ -1,0 +1,6 @@
+
+services:
+    service_name:
+        class: Mangati\BaseBundle\Form\Type\DateTimeType
+        tags: 
+            - { name: form.type, alias: mangati_datetime }

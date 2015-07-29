@@ -1,0 +1,22 @@
+{
+    "name": "mangati/base-bundle",
+    "type": "symfony-bundle",
+    "description": "Symfony 2 application base bundle",
+    "keywords": ["app", "utils", "base"],
+    "homepage": "https://github.com/mangati/base-bundle",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Rogerio Lino",
+            "email": "rogeriolino@gmail.com",
+            "homepage": "http://rogeriolino.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.4"
+    },
+    "autoload": {
+        "psr-0": { "Mangati\\BaseBundle": "" }
+    },
+    "target-dir": "Mangati/BaseBundle"
+}
