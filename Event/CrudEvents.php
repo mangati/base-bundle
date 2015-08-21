@@ -15,5 +15,6 @@ final class CrudEvents
     const POST_SAVE        = 'crud.post-save';
     const ERROR            = 'crud.error';
     const FORM_RENDER      = 'crud.form-render';
+    const PRE_CREATE_FORM  = 'crud.pre-create-form';
     
 }

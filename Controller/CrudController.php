@@ -192,6 +192,9 @@ abstract class CrudController extends EntityController {
      * @return FormInterface
      */
     protected function createEditForm(Request $request, $entity) {
+        $this->getDispatcher()
+                ->dispatch(CrudEvents::PRE_CREATE_FORM, new CrudEvent($entity, $request));
+        
         return $this->createForm($this->createFormType(), $entity, [
             'action' => $this->editUrl($request, $entity),
             'method' => 'post'
