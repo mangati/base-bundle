@@ -7,11 +7,10 @@ use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\Request;
 
 /**
- * CRUD event
+ * CRUD event.
  */
 class CrudEvent extends Event
 {
-
     /**
      * @var mixed
      */
@@ -24,15 +23,14 @@ class CrudEvent extends Event
      * @var FormInterface
      */
     private $form;
-    
-    
+
     public function __construct($data, Request $request = null, FormInterface $form = null)
     {
         $this->data = $data;
         $this->form = $form;
         $this->request = $request;
     }
-    
+
     public function getData()
     {
         return $this->data;
@@ -47,5 +45,4 @@ class CrudEvent extends Event
     {
         return $this->request;
     }
-    
 }
