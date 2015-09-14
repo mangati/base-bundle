@@ -6,22 +6,21 @@ use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
 
 /**
- * Configuration
+ * Configuration.
  *
  * @author Rogério Lino <rogeriolino@gmail.com>
  */
 class Configuration implements ConfigurationInterface
 {
-    
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function getConfigTreeBuilder()
     {
         $treeBuilder = new TreeBuilder();
         $rootNode = $treeBuilder->root('mangati_base');
         $this->addPicker($rootNode);
+
         return $treeBuilder;
     }
-    
 }

@@ -1,22 +1,23 @@
 <?php
+
 namespace Mangati\BaseBundle\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
 /**
- * LoginController
+ * LoginController.
  *
  * @author Rogerio Lino <rogeriolino@gmail.com>
  */
-class LoginController extends Controller 
+class LoginController extends Controller
 {
-    
     /**
      * @Route("/login")
      * 
      * @param Request $request
+     *
      * @return array
      */
     public function loginAction(Request $request)
@@ -35,9 +36,9 @@ class LoginController extends Controller
             'error'         => $error,
         ]);
     }
-    
-    protected function getLoginTemplate() {
+
+    protected function getLoginTemplate()
+    {
         return 'MangatiBaseBundle:Login:login.html.twig';
     }
-    
 }
