@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt">
+    <head>
+        <meta charset="utf-8">
+        <title>{% block title -%}Application title{%- endblock %}</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="{{ asset('css/main.css') }}" rel="stylesheet" media="screen">
+        <link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" media="screen">
+        <link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap-theme.min.css" rel="stylesheet" media="screen">
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+          <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
+          <script src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+        {% block stylesheets %}{% endblock %}
+    </head>
+    <body>
+        
+        {% block body %}
+        {% endblock %}
+        
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/parsley.js/2.1.2/parsley.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/datatables/1.10.9/js/jquery.dataTables.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/datatables/1.10.9/js/dataTables.bootstrap.min.js"></script>
+        
+        {% block javascripts %}{% endblock %}
+    </body>
+</html>
