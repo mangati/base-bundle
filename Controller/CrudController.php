@@ -194,14 +194,17 @@ abstract class CrudController extends EntityController
      * @return FormTypeInterface
      */
     abstract protected function createFormType();
-    
+
     /**
-     * Retorna as opções passadas por parâmetro para criar o formulário de edição
-     * @param Request $request
+     * Retorna as opções passadas por parâmetro para criar o formulário de edição.
+     *
+     * @param Request   $request
      * @param \stdClass $entity
+     *
      * @return array
      */
-    protected function editFormOptions(Request $request, $entity) {
+    protected function editFormOptions(Request $request, $entity)
+    {
         return [
             'action' => $this->editUrl($request, $entity),
             'method' => 'post',
