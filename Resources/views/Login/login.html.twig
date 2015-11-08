@@ -2,17 +2,83 @@
 <html lang="pt">
     <head>
         <meta charset="utf-8">
-        <title>Login</title>
+        <title>{% block title -%}Login{%- endblock %}</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <!-- Bootstrap -->
-        <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet" media="screen">
-        <link href="{{ asset('css/bootstrap-theme.min.css') }}" rel="stylesheet" media="screen">
-        <link href="{{ asset('css/login.css') }}" rel="stylesheet" media="screen">
+        <link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" media="screen">
+        <link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap-theme.min.css" rel="stylesheet" media="screen">
         <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!--[if lt IE 9]>
-        <script src="{{ asset('js/html5shiv.js') }}"></script>
-        <script src="{{ asset('js/respond.min.js') }}"></script>
+          <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
+          <script src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
+
+        {% block stylesheets %}
+        <style>
+            body {
+                padding-top: 40px;
+                padding-bottom: 40px;
+                background-color: #eee;
+            }
+
+            .form-signin {
+                max-width: 330px;
+                padding: 15px;
+                margin: 0 auto;
+                box-shadow: 1px 1px 10px #ccc;
+                border-radius: 5px;
+                background: #fff;
+            }
+
+            .form-signin .form-signin-heading {
+                margin-bottom: 10px;
+                width: 100%;
+                height: 50px;
+                background: url(../images/logo.png) no-repeat center center;
+                text-indent: -9999px;
+                overflow: hidden;
+            }
+
+            .form-signin .checkbox {
+                font-weight: normal;
+            }
+
+            .form-signin .form-control {
+                position: relative;
+                font-size: 16px;
+                height: auto;
+                padding: 10px;
+                -webkit-box-sizing: border-box;
+                -moz-box-sizing: border-box;
+                box-sizing: border-box;
+            }
+
+            .form-signin .form-control:focus {
+                z-index: 2;
+            }
+
+            .form-signin .username {
+                margin-bottom: 0;
+            }
+
+            .form-signin .password {
+                margin-top: 0;
+            }
+
+            .form-signin .username input {
+                border-bottom-left-radius: 0;
+                border-bottom-right-radius: 0;
+            }
+
+            .form-signin .password input {
+                border-top-left-radius: 0;
+                border-top-right-radius: 0;
+            }
+
+            .form-signin button {
+                margin-top: 10px;
+            }
+        </style>
+        {% endblock %}
     </head>
     <body>
         <div class="container">
@@ -34,7 +100,8 @@
                 <button class="btn btn-lg btn-primary btn-block" type="submit">Entrar</button>
             </form>
         </div>
-        <script src="{{ asset('js/jquery.min.js') }}"></script>
-        <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+                
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        {% block javascripts %}{% endblock %}
     </body>
 </html>
