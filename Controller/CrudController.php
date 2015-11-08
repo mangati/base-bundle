@@ -58,6 +58,7 @@ abstract class CrudController extends EntityController
      * 
      * @param Request $request
      * @param Query   $query
+     * @param boolean $arrayResult default true
      *
      * @return JsonResponse
      */
