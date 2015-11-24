@@ -126,6 +126,8 @@ abstract class CrudController extends EntityController
 
                     // redireciona a pagina para evitar reenvio do post
                     return $this->redirect($this->editUrl($request, $entity));
+                } else {
+                    throw new Exception('O formulário enviado não está válido, favor verificar os campos.');
                 }
             } catch (Exception $e) {
                 $this->getDispatcher()
