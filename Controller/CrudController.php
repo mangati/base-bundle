@@ -106,7 +106,7 @@ abstract class CrudController extends EntityController
             $entity = $em->find($this->entityName, $id);
         }
         if (!$entity) {
-            $entity = $this->createEntity();
+            $entity = $this->createEntity($request);
         }
 
         $form = $this->createEditForm($request, $entity);

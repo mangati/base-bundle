@@ -4,6 +4,7 @@ namespace Mangati\BaseBundle\Controller;
 
 use Doctrine\ORM\EntityRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
 
 /**
  * Abstract entity controller.
@@ -30,7 +31,7 @@ abstract class EntityController extends Controller
     /**
      * @return mixed
      */
-    public function createEntity()
+    public function createEntity(Request $request)
     {
         return new $this->entityName();
     }
