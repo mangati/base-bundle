@@ -4,7 +4,7 @@ namespace Mangati\BaseBundle\Controller;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Query;
-use Doctrine\ORM\Tools\Pagination\Paginator;
+use Mangati\BaseBundle\Pagination\DataTables;
 use Exception;
 use Mangati\BaseBundle\Event\CrudEvent;
 use Mangati\BaseBundle\Event\CrudEvents;
@@ -64,28 +64,11 @@ abstract class CrudController extends EntityController
      */
     protected function dataTable(Request $request, Query $query, $arrayResult = true)
     {
-        $maxResults = (int) $request->get('length');
-        if ($maxResults <= 0 || $maxResults > 1000) {
-            $maxResults = 10;
-        }
-        $offset = (int) $request->get('start');
-        if ($offset < 0) {
-            $offset = 0;
-        }
-        $paginator = new Paginator($query, false);
-        $query
-                ->setFirstResult($offset)
-                ->setMaxResults($maxResults);
-        if ($arrayResult) {
-            $result = $query->getArrayResult();
-        } else {
-            $result = $query->getResult();
-        }
-        $content = [
-            'recordsTotal'    => count($paginator),
-            'recordsFiltered' => count($paginator),
-            'data'            => $result,
-        ];
+        $length = (int) $request->get('length');
+        $start  = (int) $request->get('start');
+        
+        $dataTable = new DataTables();
+        $content = $dataTable->paginate($query, $length, $start, $arrayResult);
 
         return new JsonResponse($content);
     }
@@ -182,8 +165,9 @@ abstract class CrudController extends EntityController
      * Insere ou atualiza a entidade no banco. Esse método pode ser sobrescrito
      * caso haja necessidade de utilizar algum serviço de regras de negócio.
      *
-     * @param mixed $entity
-     * @param Form  $form
+     * @param mixed   $entity
+     * @param Request $request
+     * @param Form    $form
      */
     protected function saveOrUpdate($entity, Request $request, Form $form)
     {
