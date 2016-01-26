@@ -15,4 +15,6 @@ final class CrudEvents
     const ERROR = 'crud.error';
     const FORM_RENDER = 'crud.form-render';
     const PRE_CREATE_FORM = 'crud.pre-create-form';
+    const PRE_DELETE = 'crud.pre-delete';
+    const POST_DELETE = 'crud.post-delete';
 }

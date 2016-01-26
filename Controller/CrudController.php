@@ -151,6 +151,32 @@ abstract class CrudController extends EntityController
         // render view
         return $this->render($template, $params->toArray());
     }
+    
+    /**
+     * Remove uma entidade.
+     * 
+     * @param Request $request
+     * @param int     $id
+     *
+     * @return array
+     */
+    protected function delete(Request $request, $id = 0)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $entity = $em->find($this->entityName, $id);
+        if (!$entity) {
+            throw new \Symfony\Component\HttpKernel\Exception\NotFoundHttpException();
+        }
+        
+        $this->getDispatcher()
+                ->dispatch(CrudEvents::PRE_DELETE, new CrudEvent($entity, $request));
+        
+        $em->remove($entity);
+        $em->flush();
+        
+        $this->getDispatcher()
+                ->dispatch(CrudEvents::PRE_POST, new CrudEvent($entity, $request));
+    }
 
     /**
      * Insere ou atualiza a entidade no banco. Esse método pode ser sobrescrito
