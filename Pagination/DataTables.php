@@ -24,7 +24,6 @@ class DataTables implements PaginationInterface
         }
         
         $paginator = new Paginator($query, false);
-        $paginator->setUseOutputWalkers(false);
         
         $query
                 ->setFirstResult($offset)
