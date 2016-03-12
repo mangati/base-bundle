@@ -1,0 +1,24 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+    
+    {% include 'MangatiBaseBundle:Crud:flashMessages.html.twig' %}
+    
+    <a href="{{ path('{routeNamePrefix}_edit') }}" class="btn btn-primary pull-right">
+        <span class="glyphicon glyphicon-plus"></span>
+        {% trans %}Novo{% endtrans %}
+    </a>
+    
+    <table id="dataTable" class="table table-striped">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+    
+{% endblock %}

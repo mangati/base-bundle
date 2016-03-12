@@ -1,0 +1,37 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+    
+    {% include 'MangatiBaseBundle:Crud:flashMessages.html.twig' %}
+    
+    {{ form_start(form) }}
+    
+        {#{{ form_row(form.name) }}#}
+        
+        <div>
+            <button type="submit" class="btn btn-primary">
+                <span class="glyphicon glyphicon-save"></span>
+                {% trans %}Salvar{% endtrans %}
+            </button>
+            
+            <a href="{{ path('{routeNamePrefix}_edit') }}" class="btn btn-default">
+                <span class="glyphicon glyphicon-plus"></span>
+                {% trans %}Novo{% endtrans %}
+            </a>
+            
+            <a href="{{ path('{routeNamePrefix}_index') }}" class="btn btn-default">
+                <span class="glyphicon glyphicon-chevron-left"></span>
+                {% trans %}Voltar{% endtrans %}
+            </a>
+            
+            {% if entity.id %}
+                <button type="button" class="btn btn-danger pull-right">
+                    <span class="glyphicon glyphicon-trash"></span>
+                    {% trans %}Excluir{% endtrans %}
+                </button>
+            {% endif %}
+        </div>
+    
+    {{ form_end(form) }}
+    
+{% endblock %}

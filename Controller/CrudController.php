@@ -207,7 +207,7 @@ abstract class CrudController extends EntityController
      * @return FormTypeInterface
      */
     abstract protected function createFormType();
-
+    
     /**
      * Retorna as opções passadas por parâmetro para criar o formulário de edição.
      *
