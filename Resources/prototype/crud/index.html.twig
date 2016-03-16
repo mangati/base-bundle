@@ -14,11 +14,47 @@
             <tr>
                 <th>#</th>
                 <th></th>
-                <th></th>
+                <th class="col-md-1"></th>
             </tr>
         </thead>
         <tbody>
         </tbody>
     </table>
     
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    
+    <script>
+        (function() {
+            'use strict'
+            
+            $('#dataTable').dataTable({
+                processing: true,
+                serverSide: true,
+                searching: false,
+                ajax: '{{ path('{routeNamePrefix}_search') }}',
+                pageLength: 10,
+                columns: [
+                    {
+                        data: 'id'
+                    },
+                    {
+                        data: ''
+                    },
+                    {
+                        data: 'id',
+                        render: function (id) {
+                            return '<a href="{{ path('{routeNamePrefix}_index') }}/edit/' + id + '" class="btn btn-default"><span class="glyphicon glyphicon-edit"></span></a>';
+                        }
+                    }
+                ]
+            }).on('preXhr.dt', function (e, settings, data) {
+            
+            }).on('draw.dt', function () {
+
+            });
+        })();
+    </script>
 {% endblock %}
